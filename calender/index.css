@@ -1,4 +1,23 @@
-.box {
-  color: blue;
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.container {
+  width: 210px;
+}
+
+.hd,
+.bd {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hd .week,
+.bd .date {
+  width: 30px;
+  height: 30px;
+
+  text-align: center;
+}
