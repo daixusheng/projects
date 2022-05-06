@@ -5,19 +5,49 @@
 }
 
 .container {
-  width: 210px;
+  width: 280px;
+  border: 1px solid #000;
 }
 
-.hd,
-.bd {
+.title {
+  background-color: red;
+}
+
+
+.title,
+.content {
   display: flex;
   flex-wrap: wrap;
 }
 
-.hd .week,
-.bd .date {
-  width: 30px;
-  height: 30px;
+.title .day,
+.content li {
+  width: 40px;
+  height: 40px;
 
   text-align: center;
+  line-height: 40px;
+}
+
+.content li {
+  cursor: pointer;
+}
+
+.content li:hover {
+  color: #ccc;
+}
+
+.content .current {
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.content .selected {
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+.content .last,
+.content .next {
+  color: #ccc;
 }
