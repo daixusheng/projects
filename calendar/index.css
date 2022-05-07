@@ -1,0 +1,60 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+#calendar {
+  width: 280px;
+  border: 2px solid #000;
+}
+
+.title,
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.title {
+  background-color: red;
+}
+
+.title .day,
+.content li {
+  border: 2px solid transparent;
+  border-radius: 50%;
+  
+  width: 36px;
+  height: 36px;
+  
+  text-align: center;
+  line-height: 36px;
+}
+
+.content li {
+  cursor: pointer;
+}
+
+.content li:hover {
+  border: 2px solid #ccc;
+}
+
+.content li.current {
+  border: 2px solid blue;
+}
+
+.content .current {
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.content .selected {
+  border-radius: 50%;
+  background-color: #999;
+}
+
+.content .last,
+.content .next {
+  color: #ccc;
+}
