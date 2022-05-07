@@ -1,32 +1,35 @@
-.root {
+#root {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: 100%;
 }
 
-.container {
+#calender {
   width: 280px;
-  border: 1px solid #000;
+  border: 2px solid #000;
 }
-
-.title {
-  background-color: red;
-}
-
 
 .title,
 .content {
   display: flex;
   flex-wrap: wrap;
 }
+.title {
+  background-color: red;
+}
 
 .title .day,
 .content li {
-  width: 40px;
-  height: 40px;
-
+  border: 2px solid transparent;
+  border-radius: 50%;
+  
+  width: 36px;
+  height: 36px;
+  
   text-align: center;
-  line-height: 40px;
+  line-height: 36px;
 }
 
 .content li {
@@ -34,7 +37,11 @@
 }
 
 .content li:hover {
-  color: #ccc;
+  border: 2px solid #ccc;
+}
+
+.content li.current {
+  border: 2px solid blue;
 }
 
 .content .current {
@@ -44,7 +51,7 @@
 
 .content .selected {
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: #999;
 }
 
 .content .last,

@@ -1,7 +1,8 @@
-const calenderBody = document.querySelector('.bd');
+const calenderContent = document.querySelector('.content');
 // console.log(calenderBody)
 
 const year = document.querySelector('.year');
+const today = document.querySelector('.today');
 
 const lastMonth = document.querySelector('.lastMonth');
 const nextMonth = document.querySelector('.nextMonth');
@@ -15,6 +16,13 @@ nextMonth.addEventListener('click', () => {
 })
 
 
+calenderContent.addEventListener('click', (event) => {
+  if(event.target.nodeName === 'LI') {
+    console.log('Yea')
+    event.target.classList.add('selected')
+  }
+})
+
 
 // 获取当前时间
 let now = new Date();
@@ -25,16 +33,15 @@ let currentDay = now.getDate();
 console.log(currentYear, currentMonth, currentDay)
 
 year.innerHTML = `${currentYear}年${currentMonth}月`;
+today.innerHTML = `${currentDay}`;
 
 
 // 判断年份是否为闰年
 function isLeapYear(year) {
   let flag = false;
-
   if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
     flag = true;
   }
-  
   return flag;
 }
 
@@ -42,46 +49,40 @@ function isLeapYear(year) {
 function getMonthsInYear(year) {
   // 初始化各月天数
   const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
   // 闰年二月特殊处理
   if (isLeapYear(year)) {
     months[1] = 29;
   }
-
   return months;
 }
 
 // 按当月天数生成月长数组
 function getDaysInMonth(month) {
-  const days = [];
-  
+  const days = []; 
   // 获取当年月份
   const months = getMonthsInYear(currentYear);
-
   for(let i = 0; i < months[month - 1]; i ++) {
     days.push(i + 1);
   }
-  
   return days;
 }
 
 // 按月长数组渲染日历
-function renderCalenderByMonth() {
+function renderCalender() {
   const days = getDaysInMonth(currentMonth);
 
   // 找出 今天 的索引值
-  const indexofToday = days.findIndex(currentDay);
+  let indexofToday = days.indexOf(currentDay);
+  console.log(indexofToday)
 
   const _days = days.map((day, index) => {
-    return `${indexofToday} === ${index} ? : <li class="date">${day}</li>`
+    return indexofToday === index ? `<li class="current">${day}</li>` : `<li>${day}</li>`
   }).join('');
-  calenderBody.innerHTML = _days;
-  // console.log(_days)
+
+  calenderContent.innerHTML = _days;
 }
-renderCalenderByMonth();
+renderCalender();
 
 
 // 非当月的天样式转为灰色
-let daysNotIncurrentMonth;
-
-
+let daysNotInCurrentMonth;
