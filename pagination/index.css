@@ -1,0 +1,32 @@
+.pagination {
+  border: 1px solid #000;
+
+  /* width: fit-content; */
+
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  text-align: center;
+}
+
+.first,
+.last,
+.prev,
+.next,
+.item {
+  margin: 4px;
+  padding: 4px;
+  
+  width: 24px;
+  height: 24px;
+
+  background-color: #ccc;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
